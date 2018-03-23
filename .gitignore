@@ -22,3 +22,6 @@
 
 # Ignore rspec customization
 /.rspec
+
+# Ignore Gemfile.lock as this is a gem
+/Gemfile.lock
