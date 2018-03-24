@@ -35,33 +35,32 @@ The Roadmap for V1 is to provide a completely usable API wrapper to do common ta
 Here's an extract from the TODO:
 
 # V1.0
-[ ] Authentication
-  [ ] API Key Management
-  [ ] Authorization
-[ ] Status Management
-  [ ] Modelization: Response
-  [ ] Modelization: Status
-  [ ] Modelization: Output
-  [ ] General Errors
-  [ ] Specific Errors
-  [ ] Response Parsing
-[ ] Predict
-  [ ] Modelization: Input
-  [ ] Modelization: Data
-  [ ] Modelization: Concept
-  [ ] Modelization: Model
-  [ ] Support URL Requests for Images
-  [ ] Response Parsing
-  [ ] Support base 64 Requests for Images
-  [ ] Support of multiple inputs (max 128)
-  [ ] Modelization: Frame
-  [ ] Video support
-[ ] Search
-  [ ] Add Images to search index
-  [ ] Search by concept
-  [ ] Search by image
-[ ] Train
-  [ ] Add image with concepts
-  [ ] Model Creation
-  [ ] Model Training
-
+- [ ] Authentication
+  - [ ] API Key Management
+  - [ ] Authorization
+- [ ] Status Management
+  - [ ] Modelization: Response
+  - [ ] Modelization: Status
+  - [ ] Modelization: Output
+  - [ ] General Errors
+  - [ ] Specific Errors
+  - [ ] Response Parsing
+- [ ] Predict
+  - [ ] Modelization: Input
+  - [ ] Modelization: Data
+  - [ ] Modelization: Concept
+  - [ ] Modelization: Model
+  - [ ] Support URL Requests for Images
+  - [ ] Response Parsing
+  - [ ] Support base 64 Requests for Images
+  - [ ] Support of multiple inputs (max 128)
+  - [ ] Modelization: Frame
+  - [ ] Video support
+- [ ] Search
+  - [ ] Add Images to search index
+  - [ ] Search by concept
+  - [ ] Search by image
+- [ ] Train
+  - [ ] Add image with concepts
+  - [ ] Model Creation
+  - [ ] Model Training
