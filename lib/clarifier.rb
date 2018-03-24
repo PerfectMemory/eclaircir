@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require 'json'
+
+require 'httparty'
+
 module Clarifier
   class << self
     def configure
@@ -13,4 +17,6 @@ module Clarifier
 end
 
 require_relative 'clarifier/version'
+require_relative 'clarifier/constants'
 require_relative 'clarifier/configuration'
+require_relative 'clarifier/client'

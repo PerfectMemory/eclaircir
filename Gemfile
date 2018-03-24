@@ -9,4 +9,5 @@ group :test, :development do
   gem 'byebug'
   gem 'dotenv'
   gem 'simplecov', require: false
+  gem 'webmock'
 end
