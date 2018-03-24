@@ -20,6 +20,7 @@ require 'pp'
 require 'byebug'
 require 'rspec'
 require 'rspec/its'
+require 'webmock/rspec'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
