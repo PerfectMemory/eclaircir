@@ -21,9 +21,17 @@ require 'byebug'
 require 'rspec'
 require 'rspec/its'
 require 'webmock/rspec'
+require 'factory_bot'
+require 'faker'
+
+Dir["./spec/factories/**/*.rb"].sort.each do |factory|
+  require factory
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include FactoryBot::Syntax::Methods
 end
