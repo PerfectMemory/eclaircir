@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rake'
+gem 'virtus'
 
 group :test, :development do
   gem 'rspec', '~> 3.4'
