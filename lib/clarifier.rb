@@ -3,6 +3,7 @@
 require 'json'
 
 require 'httparty'
+require 'virtus'
 
 module Clarifier
   class << self
@@ -19,4 +20,7 @@ end
 require_relative 'clarifier/version'
 require_relative 'clarifier/constants'
 require_relative 'clarifier/configuration'
+
+require_relative 'clarifier/api_models'
+
 require_relative 'clarifier/client'
