@@ -5,8 +5,8 @@ module Clarifier
     include HTTParty
 
     base_uri(Clarifier::API_ENDPOINT)
-
-    headers 'Content-type' => 'application/json'
+    format :json
+    headers 'Content-Type' => 'application/json', 'Accept' => 'application/json'
 
     def initialize(api_key)
       @api_key = api_key
@@ -14,6 +14,14 @@ module Clarifier
 
     def models(options = {})
       get('/models', query: options)
+    end
+
+    def predict_outputs(model, inputs)
+      with_response_parsing do
+        validate post("/models/#{model.id}/outputs", body: {
+          inputs: Array(inputs).map(&:to_api_hash)
+        }.to_json)
+      end
     end
 
     protected
@@ -51,5 +59,27 @@ module Clarifier
         query: query,
         body: body)
     end
+
+    def with_response_parsing
+      Clarifier::Response.parse(yield).tap do |response|
+        StatusValidator.new(response).validate!
+      end
+    end
+
+    def validate(response)
+      case response.code
+      when 200..399
+        response.parsed_response
+      else
+        raise_status_error(response.parsed_response)
+      end
+    end
+
+    def raise_status_error(raw_response)
+      status = raw_response['status']
+      raise APIError, status['description']
+    end
   end
 end
+
+require_relative 'client/status_validator'
