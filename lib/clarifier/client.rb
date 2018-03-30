@@ -53,3 +53,5 @@ module Clarifier
     end
   end
 end
+
+require_relative 'client/status_validator'
