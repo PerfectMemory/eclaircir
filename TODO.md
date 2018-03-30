@@ -1,21 +1,22 @@
 # V1.0
-- [ ] Authentication
-  - [ ] API Key Management
-  - [ ] Authorization
-- [ ] Status Management
-  - [ ] Modelization: Response
-  - [ ] Modelization: Status
-  - [ ] Modelization: Output
-  - [ ] General Errors
-  - [ ] Specific Errors
-  - [ ] Response Parsing
-- [ ] Predict
-  - [ ] Modelization: Input
-  - [ ] Modelization: Data
-  - [ ] Modelization: Concept
-  - [ ] Modelization: Model
-  - [ ] Support URL Requests for Images
-  - [ ] Response Parsing
+- [x] Authentication
+  - [x] API Key Management
+  - [x] Authorization
+- [x] Status Management
+  - [x] Modelization: Response
+  - [x] Modelization: Status
+  - [x] Modelization: Output
+  - [x] General Errors
+  - [x] Specific Errors
+  - [ ] Fully manage statuses using the statuses cheatsheet
+  - [x] Response Parsing
+- [x] Predict
+  - [x] Modelization: Input
+  - [x] Modelization: Data
+  - [x] Modelization: Concept
+  - [x] Modelization: Model
+  - [x] Support URL Requests for Images
+  - [x] Response Parsing
   - [ ] Support base 64 Requests for Images
   - [ ] Support of multiple inputs (max 128)
   - [ ] Modelization: Frame
