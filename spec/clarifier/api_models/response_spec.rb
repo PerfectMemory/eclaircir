@@ -43,4 +43,21 @@ describe Clarifier::Response do
 
   its(:status) { is_expected.to be_a Clarifier::Status }
   its(:outputs) { is_expected.to all(be_a(Clarifier::Output)) }
+
+  describe '.parse' do
+    before do
+      allow(described_class)
+        .to receive(:new)
+        .with(params)
+        .and_return(fake_response)
+    end
+
+    let(:fake_response) do
+      instance_double(described_class)
+    end
+
+    it 'returns the built response' do
+      expect(described_class.parse(params)).to be fake_response
+    end
+  end
 end

@@ -6,5 +6,11 @@ module Clarifier
   class Response < BaseModel
     attribute :status, Status
     attribute :outputs, Array[Output]
+
+    class << self
+      def parse(raw_response)
+        self.new(raw_response)
+      end
+    end
   end
 end
