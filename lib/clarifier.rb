@@ -4,6 +4,7 @@ require 'json'
 
 require 'httparty'
 require 'virtus'
+require 'active_support/core_ext/hash/compact'
 
 module Clarifier
   class << self
@@ -19,6 +20,7 @@ end
 
 require_relative 'clarifier/version'
 require_relative 'clarifier/constants'
+require_relative 'clarifier/error'
 require_relative 'clarifier/configuration'
 
 require_relative 'clarifier/api_models'
