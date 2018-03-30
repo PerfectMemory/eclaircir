@@ -7,9 +7,9 @@ describe Clarifier::Response do
 
   let(:params) do
     {
-      'status': {
-        'code': 10000,
-        'description': 'Ok',
+      'status' => {
+        'code' => 10000,
+        'description' => 'Ok',
       },
       'outputs' => [
         {
