@@ -1,0 +1,7 @@
+{
+  "status": {
+    "code": 11102,
+    "description": "Invalid request",
+    "details": "Malformed or invalid request"
+  }
+}

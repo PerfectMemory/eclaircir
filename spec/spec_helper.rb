@@ -35,3 +35,13 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 end
+
+def load_fixture(fixture_path)
+  complete_path = File.join(
+    File.dirname(__FILE__),
+    'etc',
+    'fixtures',
+    fixture_path)
+
+  File.read(complete_path)
+end
