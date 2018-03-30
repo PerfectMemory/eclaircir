@@ -32,4 +32,39 @@ describe Clarifier::Input do
       })
     end
   end
+
+  describe '.from_url' do
+    before do
+      allow(described_class)
+        .to receive(:new)
+        .with(data: fake_data)
+        .and_return(fake_image)
+
+      allow(Clarifier::Data)
+        .to receive(:new)
+        .with(image: fake_media)
+        .and_return(fake_data)
+
+      allow(Clarifier::Media)
+        .to receive(:new)
+        .with(url: 'http://example.com/lol.jpg')
+        .and_return(fake_media)
+    end
+
+    let(:fake_image) do
+      instance_double(described_class)
+    end
+
+    let(:fake_data) do
+      instance_double(Clarifier::Data)
+    end
+
+    let(:fake_media) do
+      instance_double(Clarifier::Media)
+    end
+
+    it 'builds and returns an image with the right url' do
+      expect(described_class.from_url('http://example.com/lol.jpg')).to be fake_image
+    end
+  end
 end
