@@ -24,4 +24,32 @@ describe Clarifier do
       end.to yield_with_args(fake_configuration)
     end
   end
+
+  describe '.new_client' do
+    before do
+      allow(described_class)
+        .to receive(:configuration)
+        .and_return(fake_configuration)
+    end
+
+    let(:fake_configuration) do
+      instance_double(Clarifier::Configuration,
+        api_key: 'xxx')
+    end
+
+    before do
+      expect(Clarifier::Client)
+        .to receive(:new)
+        .with('xxx')
+        .and_return(fake_client)
+    end
+
+    let(:fake_client) do
+      instance_double(Clarifier::Client)
+    end
+
+    it 'builds and returns the client correctly' do
+      expect(described_class.new_client).to be fake_client
+    end
+  end
 end

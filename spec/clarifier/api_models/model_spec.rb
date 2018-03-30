@@ -40,4 +40,70 @@ describe Clarifier::Model do
   its(:app_id) { is_expected.to eq 'blah' }
   its(:output_info) { is_expected.to eq output_info }
   its(:model_version) { is_expected.to eq model_version }
+
+  describe '#predict_outputs' do
+    before do
+      allow(Clarifier)
+        .to receive(:new_client)
+        .and_return(fake_client)
+    end
+
+    let(:fake_client) do
+      instance_double(Clarifier::Client)
+    end
+
+    context 'when using an url' do
+      before do
+        allow(Clarifier::Input)
+          .to receive(:from_url)
+          .with('http://example.com/lol.jpg')
+          .and_return(fake_input)
+      end
+
+      let(:fake_input) do
+        instance_double(Clarifier::Input)
+      end
+
+      let(:predicted_outputs) do
+        instance_double(Clarifier::Response)
+      end
+
+      it 'asks the client correctly' do
+        expect(fake_client)
+          .to receive(:predict_outputs)
+          .with(subject, fake_input)
+          .and_return(predicted_outputs)
+
+        subject.predict_outputs(url: 'http://example.com/lol.jpg')
+      end
+    end
+
+    context 'when using an input directly' do
+      let(:fake_input) do
+        instance_double(Clarifier::Input)
+      end
+
+      let(:predicted_outputs) do
+        instance_double(Clarifier::Response)
+      end
+
+      it 'asks the client correctly' do
+        expect(fake_client)
+          .to receive(:predict_outputs)
+          .with(subject, fake_input)
+          .and_return(predicted_outputs)
+
+        subject.predict_outputs(input: fake_input)
+      end
+    end
+
+    context 'when using no parameter' do
+      it 'raises an ArgumentError' do
+        expect do
+          subject.predict_outputs
+        end.to raise_error(ArgumentError,
+          /one of the following keyword arguments should be provided \[url, input\]/)
+      end
+    end
+  end
 end

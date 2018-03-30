@@ -15,6 +15,10 @@ module Clarifier
     def configuration
       @configuration ||= Configuration.new
     end
+
+    def new_client
+      Client.new(configuration.api_key)
+    end
   end
 end
 
