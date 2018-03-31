@@ -52,58 +52,32 @@ describe Eclaircir::Model do
       instance_double(Eclaircir::Client)
     end
 
-    context 'when using an url' do
-      before do
-        allow(Eclaircir::Input)
-          .to receive(:from_url)
-          .with('http://example.com/lol.jpg')
-          .and_return(fake_input)
-      end
+    before do
+      allow(Eclaircir::Utilities::InputParser)
+        .to receive(:parse)
+        .with(input_params)
+        .and_return(fake_input)
 
-      let(:fake_input) do
-        instance_double(Eclaircir::Input)
-      end
-
-      let(:predicted_outputs) do
-        instance_double(Eclaircir::Response)
-      end
-
-      it 'asks the client correctly' do
-        expect(fake_client)
-          .to receive(:predict_outputs)
-          .with(subject, fake_input)
-          .and_return(predicted_outputs)
-
-        subject.predict_outputs(url: 'http://example.com/lol.jpg')
-      end
+      expect(fake_client)
+        .to receive(:predict_outputs)
+        .with(subject, fake_input)
+        .and_return(predicted_outputs)
     end
 
-    context 'when using an input directly' do
-      let(:fake_input) do
-        instance_double(Eclaircir::Input)
-      end
-
-      let(:predicted_outputs) do
-        instance_double(Eclaircir::Response)
-      end
-
-      it 'asks the client correctly' do
-        expect(fake_client)
-          .to receive(:predict_outputs)
-          .with(subject, fake_input)
-          .and_return(predicted_outputs)
-
-        subject.predict_outputs(input: fake_input)
-      end
+    let(:input_params) do
+      instance_double(Hash)
     end
 
-    context 'when using no parameter' do
-      it 'raises an ArgumentError' do
-        expect do
-          subject.predict_outputs
-        end.to raise_error(ArgumentError,
-          /one of the following keyword arguments should be provided \[url, input\]/)
-      end
+    let(:fake_input) do
+      instance_double(Eclaircir::Input)
+    end
+
+    let(:predicted_outputs) do
+      instance_double(Eclaircir::Response)
+    end
+
+    it 'returns the clients response' do
+      expect(subject.predict_outputs(input_params)).to be predicted_outputs
     end
   end
 end

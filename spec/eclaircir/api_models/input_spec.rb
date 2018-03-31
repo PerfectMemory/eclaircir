@@ -67,4 +67,103 @@ describe Eclaircir::Input do
       expect(described_class.from_url('http://example.com/lol.jpg')).to be fake_image
     end
   end
+
+  describe '.from_base64' do
+    before do
+      allow(described_class)
+        .to receive(:new)
+        .with(data: fake_data)
+        .and_return(fake_image)
+
+      allow(Eclaircir::Data)
+        .to receive(:new)
+        .with(image: fake_media)
+        .and_return(fake_data)
+
+      allow(Eclaircir::Media)
+        .to receive(:new)
+        .with(base64: 'base64data')
+        .and_return(fake_media)
+    end
+
+    let(:fake_image) do
+      instance_double(described_class)
+    end
+
+    let(:fake_data) do
+      instance_double(Eclaircir::Data)
+    end
+
+    let(:fake_media) do
+      instance_double(Eclaircir::Media)
+    end
+
+    it 'builds and returns an image with the right url' do
+      expect(described_class.from_base64('base64data')).to be fake_image
+    end
+  end
+
+  describe '.from_content' do
+    before do
+      allow(described_class)
+        .to receive(:from_base64)
+        .with("eHh4\n")
+        .and_return(fake_image)
+    end
+
+    let(:fake_image) do
+      instance_double(described_class)
+    end
+
+    it 'builds and returns an image with the right url' do
+      expect(described_class.from_content('xxx')).to be fake_image
+    end
+  end
+
+  describe '.from_io' do
+    before do
+      allow(described_class)
+        .to receive(:from_content)
+        .with('content string')
+        .and_return(fake_image)
+    end
+
+    let(:fake_image) do
+      instance_double(described_class)
+    end
+
+    let(:io) do
+      instance_double(IO, read: 'content string')
+    end
+
+    it 'builds and returns an image with the right url' do
+      expect(described_class.from_io(io)).to be fake_image
+    end
+  end
+
+  describe '.from_path' do
+    before do
+      allow(described_class)
+        .to receive(:from_io)
+        .with(io)
+        .and_return(fake_image)
+
+      allow(File)
+        .to receive(:open)
+        .with('sample/path')
+        .and_yield(io)
+    end
+
+    let(:fake_image) do
+      instance_double(described_class)
+    end
+
+    let(:io) do
+      instance_double(File)
+    end
+
+    it 'builds and returns an image with the right url' do
+      expect(described_class.from_path('sample/path')).to be fake_image
+    end
+  end
 end
