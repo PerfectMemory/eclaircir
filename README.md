@@ -3,6 +3,10 @@ Clarifier is a french word for 'Clarify' and seemed relevant as a name for the g
 
 This gem aims to be a Clarifai APIv2 wrapper that is complete, tested and covered.
 
+
+[![Build Status](https://travis-ci.org/kbogtob/clarifier.svg?branch=master)](https://travis-ci.org/kbogtob/clarifier)
+[![Coverage Status](https://coveralls.io/repos/github/kbogtob/clarifier/badge.svg?branch=master)](https://coveralls.io/github/kbogtob/clarifier?branch=master)
+
 ## Install
 
 ```sh

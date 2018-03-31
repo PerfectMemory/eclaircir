@@ -6,6 +6,12 @@ require 'dotenv'
 Dotenv.load
 
 require 'simplecov'
+require 'coveralls'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 
 SimpleCov.start do
   add_filter ENV['GEM_HOME'] if ENV.fetch('GEM_HOME', '').include?('bundle')
