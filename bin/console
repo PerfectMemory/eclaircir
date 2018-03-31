@@ -7,4 +7,4 @@ begin
 rescue LoadError
 end
 
-exec('irb', '-I', 'lib/', '-r', 'clarifier')
+exec('irb', '-I', 'lib/', '-r', 'eclaircir')

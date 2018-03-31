@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :data, class: Clarifier::Data do
+  factory :data, class: Eclaircir::Data do
     trait :image do
       image { build(:media) }
     end
@@ -8,6 +8,6 @@ FactoryBot.define do
       concepts { build_list(:concept, 3) }
     end
 
-    initialize_with { Clarifier::Data.new(attributes) }
+    initialize_with { Eclaircir::Data.new(attributes) }
   end
 end
