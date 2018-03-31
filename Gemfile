@@ -10,6 +10,7 @@ group :test, :development do
   gem 'byebug'
   gem 'dotenv'
   gem 'simplecov', require: false
+  gem 'coveralls', require: false
   gem 'factory_bot'
   gem 'faker'
   gem 'webmock'
