@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Data do
+describe Eclaircir::Data do
   subject do
     described_class.new(params)
   end
@@ -35,8 +35,8 @@ describe Clarifier::Data do
     }
   end
 
-  its(:image) { is_expected.to be_a Clarifier::Media }
-  its(:concepts) { is_expected.to all(be_a(Clarifier::Concept)) }
+  its(:image) { is_expected.to be_a Eclaircir::Media }
+  its(:concepts) { is_expected.to all(be_a(Eclaircir::Concept)) }
 
   describe '#to_api_hash' do
     it 'returns the right hash' do

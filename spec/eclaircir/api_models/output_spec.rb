@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Output do
+describe Eclaircir::Output do
   subject do
     described_class.new(params)
   end
@@ -34,9 +34,9 @@ describe Clarifier::Output do
   end
 
   its(:id) { is_expected.to eq 'ea68cac87c304b28a8046557062f34a0' }
-  its(:status) { is_expected.to be_a Clarifier::Status }
+  its(:status) { is_expected.to be_a Eclaircir::Status }
   its(:created_at) { is_expected.to eq DateTime.new(2016, 11, 22, 16, 50, 25) }
-  its(:model) { is_expected.to be_a Clarifier::Model }
-  its(:input) { is_expected.to be_a Clarifier::Input }
-  its(:data) { is_expected.to be_a Clarifier::Data }
+  its(:model) { is_expected.to be_a Eclaircir::Model }
+  its(:input) { is_expected.to be_a Eclaircir::Input }
+  its(:data) { is_expected.to be_a Eclaircir::Data }
 end

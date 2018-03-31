@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe Clarifier::Client::StatusValidator do
+describe Eclaircir::Client::StatusValidator do
   subject do
     described_class.new(response)
   end
 
   let(:response) do
-    instance_double(Clarifier::Response,
+    instance_double(Eclaircir::Response,
       status: main_status,
       outputs: [output])
   end
 
   let(:main_status) do
-    instance_double(Clarifier::Status,
+    instance_double(Eclaircir::Status,
       success?: main_status_success)
   end
 
@@ -21,12 +21,12 @@ describe Clarifier::Client::StatusValidator do
   end
 
   let(:output) do
-    instance_double(Clarifier::Output,
+    instance_double(Eclaircir::Output,
       status: output_status)
   end
 
   let(:output_status) do
-    instance_double(Clarifier::Status)
+    instance_double(Eclaircir::Status)
   end
 
   describe '#validate!' do
@@ -45,13 +45,13 @@ describe Clarifier::Client::StatusValidator do
         before do
           allow(output_status)
             .to receive(:validate!)
-            .and_raise(Clarifier::APIError, 'output status error')
+            .and_raise(Eclaircir::APIError, 'output status error')
         end
 
         it 'raises the output status validation error' do
           expect do
             subject.validate!
-          end.to raise_error(Clarifier::APIError, /output status error/)
+          end.to raise_error(Eclaircir::APIError, /output status error/)
         end
       end
 
@@ -63,13 +63,13 @@ describe Clarifier::Client::StatusValidator do
 
           allow(main_status)
             .to receive(:validate!)
-            .and_raise(Clarifier::APIError, 'main status error')
+            .and_raise(Eclaircir::APIError, 'main status error')
         end
 
         it 'raises the main status validation error' do
           expect do
             subject.validate!
-          end.to raise_error(Clarifier::APIError, /main status error/)
+          end.to raise_error(Eclaircir::APIError, /main status error/)
         end
       end
     end

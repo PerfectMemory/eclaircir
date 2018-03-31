@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Configuration do
+describe Eclaircir::Configuration do
   subject do
     described_class.new(params)
   end

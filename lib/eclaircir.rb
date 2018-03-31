@@ -6,7 +6,7 @@ require 'httparty'
 require 'virtus'
 require 'active_support/core_ext/hash/compact'
 
-module Clarifier
+module Eclaircir
   class << self
     def configure
       yield configuration
@@ -22,11 +22,11 @@ module Clarifier
   end
 end
 
-require_relative 'clarifier/version'
-require_relative 'clarifier/constants'
-require_relative 'clarifier/error'
-require_relative 'clarifier/configuration'
+require_relative 'eclaircir/version'
+require_relative 'eclaircir/constants'
+require_relative 'eclaircir/error'
+require_relative 'eclaircir/configuration'
 
-require_relative 'clarifier/api_models'
+require_relative 'eclaircir/api_models'
 
-require_relative 'clarifier/client'
+require_relative 'eclaircir/client'

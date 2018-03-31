@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Status do
+describe Eclaircir::Status do
   subject do
     described_class.new(params)
   end
@@ -48,7 +48,7 @@ describe Clarifier::Status do
       it 'raises the specific error with the description' do
         expect do
           subject.validate!
-        end.to raise_error(Clarifier::ImageDecodingError, /Ok/)
+        end.to raise_error(Eclaircir::ImageDecodingError, /Ok/)
       end
     end
 
@@ -60,7 +60,7 @@ describe Clarifier::Status do
       it 'raises an APIError' do
         expect do
           subject.validate!
-        end.to raise_error(Clarifier::APIError, /Ok/)
+        end.to raise_error(Eclaircir::APIError, /Ok/)
       end
     end
   end

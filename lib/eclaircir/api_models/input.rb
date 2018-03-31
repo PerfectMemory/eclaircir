@@ -2,7 +2,7 @@
 
 require_relative 'base_model'
 
-module Clarifier
+module Eclaircir
   class Input < BaseModel
     attribute :id, String
     attribute :data, Data

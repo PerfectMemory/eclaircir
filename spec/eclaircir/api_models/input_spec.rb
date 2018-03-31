@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Input do
+describe Eclaircir::Input do
   subject do
     described_class.new(params)
   end
@@ -17,7 +17,7 @@ describe Clarifier::Input do
   end
 
   its(:id) { is_expected.to eq 'ea68cac87c304b28a8046557062f34a0' }
-  its(:data) { is_expected.to be_a Clarifier::Data }
+  its(:data) { is_expected.to be_a Eclaircir::Data }
 
   describe '#to_api_hash' do
     it 'returns the right hash' do
@@ -40,12 +40,12 @@ describe Clarifier::Input do
         .with(data: fake_data)
         .and_return(fake_image)
 
-      allow(Clarifier::Data)
+      allow(Eclaircir::Data)
         .to receive(:new)
         .with(image: fake_media)
         .and_return(fake_data)
 
-      allow(Clarifier::Media)
+      allow(Eclaircir::Media)
         .to receive(:new)
         .with(url: 'http://example.com/lol.jpg')
         .and_return(fake_media)
@@ -56,11 +56,11 @@ describe Clarifier::Input do
     end
 
     let(:fake_data) do
-      instance_double(Clarifier::Data)
+      instance_double(Eclaircir::Data)
     end
 
     let(:fake_media) do
-      instance_double(Clarifier::Media)
+      instance_double(Eclaircir::Media)
     end
 
     it 'builds and returns an image with the right url' do

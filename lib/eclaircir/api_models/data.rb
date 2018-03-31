@@ -2,7 +2,7 @@
 
 require_relative 'base_model'
 
-module Clarifier
+module Eclaircir
   class Data < BaseModel
     attribute :image, Media
     attribute :concepts, Array[Concept]

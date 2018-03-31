@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Clarifier
+module Eclaircir
   class Client
     include HTTParty
 
-    base_uri(Clarifier::API_ENDPOINT)
+    base_uri(Eclaircir::API_ENDPOINT)
     format :json
     headers 'Content-Type' => 'application/json', 'Accept' => 'application/json'
 
@@ -61,7 +61,7 @@ module Clarifier
     end
 
     def with_response_parsing
-      Clarifier::Response.parse(yield).tap do |response|
+      Eclaircir::Response.parse(yield).tap do |response|
         StatusValidator.new(response).validate!
       end
     end

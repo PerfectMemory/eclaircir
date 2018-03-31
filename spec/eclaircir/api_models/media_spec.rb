@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Media do
+describe Eclaircir::Media do
   subject do
     described_class.new(params)
   end

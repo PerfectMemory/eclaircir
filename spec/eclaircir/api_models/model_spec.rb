@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Model do
+describe Eclaircir::Model do
   subject do
     described_class.new(params)
   end
@@ -43,29 +43,29 @@ describe Clarifier::Model do
 
   describe '#predict_outputs' do
     before do
-      allow(Clarifier)
+      allow(Eclaircir)
         .to receive(:new_client)
         .and_return(fake_client)
     end
 
     let(:fake_client) do
-      instance_double(Clarifier::Client)
+      instance_double(Eclaircir::Client)
     end
 
     context 'when using an url' do
       before do
-        allow(Clarifier::Input)
+        allow(Eclaircir::Input)
           .to receive(:from_url)
           .with('http://example.com/lol.jpg')
           .and_return(fake_input)
       end
 
       let(:fake_input) do
-        instance_double(Clarifier::Input)
+        instance_double(Eclaircir::Input)
       end
 
       let(:predicted_outputs) do
-        instance_double(Clarifier::Response)
+        instance_double(Eclaircir::Response)
       end
 
       it 'asks the client correctly' do
@@ -80,11 +80,11 @@ describe Clarifier::Model do
 
     context 'when using an input directly' do
       let(:fake_input) do
-        instance_double(Clarifier::Input)
+        instance_double(Eclaircir::Input)
       end
 
       let(:predicted_outputs) do
-        instance_double(Clarifier::Response)
+        instance_double(Eclaircir::Response)
       end
 
       it 'asks the client correctly' do

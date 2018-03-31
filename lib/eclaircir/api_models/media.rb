@@ -2,7 +2,7 @@
 
 require_relative 'base_model'
 
-module Clarifier
+module Eclaircir
   class Media < BaseModel
     attribute :url, String
   end

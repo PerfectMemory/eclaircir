@@ -2,7 +2,7 @@
 
 require_relative 'base_model'
 
-module Clarifier
+module Eclaircir
   class Concept < BaseModel
     attribute :id, String
     attribute :name, String

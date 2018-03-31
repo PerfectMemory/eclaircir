@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Client do
+describe Eclaircir::Client do
   subject do
     described_class.new(api_key)
   end
@@ -57,9 +57,9 @@ describe Clarifier::Client do
     end
 
     let(:input) do
-      Clarifier::Input.new(
-        data: Clarifier::Data.new(
-          image: Clarifier::Media.new(
+      Eclaircir::Input.new(
+        data: Eclaircir::Data.new(
+          image: Eclaircir::Media.new(
             url: 'http://example.com/lol.jpg')))
     end
 
@@ -73,23 +73,23 @@ describe Clarifier::Client do
       end
 
       before do
-        allow(Clarifier::Response)
+        allow(Eclaircir::Response)
           .to receive(:parse)
           .with(JSON.parse(body))
           .and_return(fake_response)
 
-        allow(Clarifier::Client::StatusValidator)
+        allow(Eclaircir::Client::StatusValidator)
           .to receive(:new)
           .with(fake_response)
           .and_return(status_validator)
       end
 
       let(:fake_response) do
-        instance_double(Clarifier::Response)
+        instance_double(Eclaircir::Response)
       end
 
       let(:status_validator) do
-        instance_double(Clarifier::Client::StatusValidator,
+        instance_double(Eclaircir::Client::StatusValidator,
           validate!: true)
       end
 
@@ -113,10 +113,10 @@ describe Clarifier::Client do
         load_fixture('predict_outputs/invalid_request.json')
       end
 
-      it 'raises a Clarifier::APIError with the status message' do
+      it 'raises a Eclaircir::APIError with the status message' do
         expect do
           predicted_outputs
-        end.to raise_error(Clarifier::APIError, /Invalid request/)
+        end.to raise_error(Eclaircir::APIError, /Invalid request/)
       end
     end
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Clarifier
+module Eclaircir
   class Configuration
     def initialize(
       env: ENV,

@@ -2,7 +2,7 @@
 
 require_relative 'base_model'
 
-module Clarifier
+module Eclaircir
   class Output < BaseModel
     attribute :id, String
     attribute :status, Status

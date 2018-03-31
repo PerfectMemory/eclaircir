@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Clarifier do
+describe Eclaircir do
   describe '.configuration' do
     it 'returns a new configuration' do
-      expect(described_class.configuration).to be_a Clarifier::Configuration
+      expect(described_class.configuration).to be_a Eclaircir::Configuration
     end
   end
 
@@ -15,7 +15,7 @@ describe Clarifier do
     end
 
     let(:fake_configuration) do
-      instance_double(Clarifier::Configuration)
+      instance_double(Eclaircir::Configuration)
     end
 
     it 'yields the configuration' do
@@ -33,19 +33,19 @@ describe Clarifier do
     end
 
     let(:fake_configuration) do
-      instance_double(Clarifier::Configuration,
+      instance_double(Eclaircir::Configuration,
         api_key: 'xxx')
     end
 
     before do
-      expect(Clarifier::Client)
+      expect(Eclaircir::Client)
         .to receive(:new)
         .with('xxx')
         .and_return(fake_client)
     end
 
     let(:fake_client) do
-      instance_double(Clarifier::Client)
+      instance_double(Eclaircir::Client)
     end
 
     it 'builds and returns the client correctly' do

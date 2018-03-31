@@ -2,7 +2,7 @@
 
 require_relative 'base_model'
 
-module Clarifier
+module Eclaircir
   class Status < BaseModel
     attribute :code, Integer
     attribute :description, String

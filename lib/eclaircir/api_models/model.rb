@@ -2,7 +2,7 @@
 
 require_relative 'base_model'
 
-module Clarifier
+module Eclaircir
   class Model < BaseModel
     attribute :id, String
     attribute :name, String
@@ -23,7 +23,7 @@ module Clarifier
           'one of the following keyword arguments should be provided [url, input]'
       end
 
-      Clarifier.new_client.predict_outputs(self, to_predict)
+      Eclaircir.new_client.predict_outputs(self, to_predict)
     end
   end
 end

@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require_relative 'lib/clarifier/version'
+require_relative 'lib/eclaircir/version'
 
 Gem::Specification.new do |s|
-  s.name = 'clarifier'
-  s.version = Clarifier::VERSION
+  s.name = 'eclaircir'
+  s.version = Eclaircir::VERSION
   s.summary = 'Clarifai APIv2 Client'
-  s.description = 'Ruby Clarifai API wrapper that is complete, tested and covered '
+  s.description = 'Ruby Clarifai API wrapper that aims to be complete, tested and covered'
   s.authors = ['Karim Bogtob']
   s.email = 'kabogtob@gmail.com'
-  s.homepage = 'https://github.com/kbogtob/clarifier'
+  s.homepage = 'https://github.com/kbogtob/eclaircir'
   s.license = 'MIT'
 
   s.files = `git ls-files`.split("\n")

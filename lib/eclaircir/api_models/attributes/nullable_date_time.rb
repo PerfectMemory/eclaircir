@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Clarifier
+module Eclaircir
   module Attributes
     class NullableDateTime < Virtus::Attribute
       def coerce(value)

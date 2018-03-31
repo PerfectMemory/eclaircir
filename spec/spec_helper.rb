@@ -21,7 +21,7 @@ SimpleCov.start do
   add_group 'Specs', 'spec'
 end
 
-require 'clarifier'
+require 'eclaircir'
 require 'pp'
 require 'byebug'
 require 'rspec'

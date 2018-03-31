@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Clarifier::Response do
+describe Eclaircir::Response do
   subject do
     described_class.new(params)
   end
@@ -41,8 +41,8 @@ describe Clarifier::Response do
     }
   end
 
-  its(:status) { is_expected.to be_a Clarifier::Status }
-  its(:outputs) { is_expected.to all(be_a(Clarifier::Output)) }
+  its(:status) { is_expected.to be_a Eclaircir::Status }
+  its(:outputs) { is_expected.to all(be_a(Eclaircir::Output)) }
 
   describe '.parse' do
     before do
