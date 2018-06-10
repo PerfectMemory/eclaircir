@@ -32,19 +32,19 @@ describe Eclaircir::Configuration do
         nil
       end
 
-      context 'when the CLARIFIER_API_KEY env var is provided' do
+      context 'when the CLARIFAI_API_KEY env var is provided' do
         let(:env) do
           {
-            'CLARIFIER_API_KEY' => 'xxx'
+            'CLARIFAI_API_KEY' => 'xxx'
           }
         end
 
-        it 'returns the CLARIFIER_API_KEY env var value' do
+        it 'returns the CLARIFAI_API_KEY env var value' do
           expect(subject.api_key).to eq 'xxx'
         end
       end
 
-      context 'when the CLARIFIER_API_KEY env var is not provided' do
+      context 'when the CLARIFAI_API_KEY env var is not provided' do
         its(:api_key) { is_expected.to be_nil }
       end
     end
